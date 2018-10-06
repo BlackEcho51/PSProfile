@@ -1,5 +1,5 @@
 filter Where-String {
-	param(
+	param (
 		[Parameter(Mandatory=$true, ValueFromPipeline=$true)]
 		[String[]] $Value,
 		[Parameter(Mandatory=$false)]
