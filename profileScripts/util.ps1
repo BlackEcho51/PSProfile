@@ -17,9 +17,6 @@ function Set-BinaryContent {
 	}
 
 	process {
-		# I think the below should work, but Byte is causing an error.
-		# $Value | Add-Content $Path -Encoding Byte
-		# So use the next line instead. 
 		$Buffer += $Value
 	}
 
