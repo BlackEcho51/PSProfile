@@ -3,7 +3,7 @@ function prompt {
     Write-Host $(Get-Time) -NoNewLine -ForegroundColor Green
     Write-Host " $(Get-Path)" -NoNewLine -ForegroundColor Yellow
     Write-Host $(Format-GitStatus) -NoNewLine -ForegroundColor Magenta
-    Write-Host "]" 
+    Write-Host "] " -NoNewLine
 }
 
 function Get-Time {
