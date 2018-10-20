@@ -13,3 +13,33 @@ filter Where-String {
 		Where-Object { $StartsWith -eq $null -or $_.StartsWith($StartsWith) }
 
 }
+
+filter ConvertFrom-Base64 {
+	param (
+		[Parameter(Mandatory=$true, ValueFromPipeline=$true)]
+		[String[]]
+		$Value
+	)
+
+	[System.Convert]::FromBase64String($Value)
+}
+
+function ConvertTo-Base64 {
+	param (
+		[Parameter(Mandatory=$true, ValueFromPipeline=$true)]
+		[byte[]]
+		$Value
+	)
+
+	begin {
+		$ByteArray = @()
+	}
+
+	process {
+		$ByteArray += $Value
+	}
+	
+	end {
+		[System.Convert]::ToBase64String($ByteArray)
+	}
+}
