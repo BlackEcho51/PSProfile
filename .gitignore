@@ -1,2 +1,6 @@
 powershellget/
 .history.xml
+
+
+# I use this file as a temporary workspace for scripts. don't check it in.
+tmp.ps1
