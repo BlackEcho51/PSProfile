@@ -7,14 +7,14 @@ if (!(Test-Path $PSProfileFolder -PathType Container)) {
 }
 
 if (Test-path $PSHistoryPath) {
-    $count=0
-    Import-CliXml $PSHistoryPath | 
-        ForEach-Object { $count++; $_ } | 
-        Add-History
-    Write-Host "Successfully Added $Count History Items." -ForegroundColor Green
+	$count=0
+	Import-CliXml $PSHistoryPath | 
+		ForEach-Object { $count++; $_ } | 
+		Add-History
+	Write-Host "Successfully Added $Count History Items." -ForegroundColor Green
 }
 
 Register-EngineEvent PowerShell.Exiting -Action {
 	Get-History -Count $PSMaximumHistoryCount | Export-CliXml $PSHistoryPath
-    [enviroment]::Exit(0)
+	[enviroment]::Exit(0)
 } | out-null
