@@ -3,7 +3,8 @@ Describe 'Where-String' {
         @{ Collection = @('Hello'); StartsWith = 'Hello'; Expected = @('Hello'); },
         @{ Collection = @('Hello', 'Hey'); StartsWith = 'He'; Expected = @('Hello', 'Hey'); },
         @{ Collection = @('Hello'); StartsWith = 'NotHello'; Expected = @(); },
-        @{ Collection = @('Hello', 'Hey'); StartsWith = 'NotHe'; Expected = @(); }
+        @{ Collection = @('Hello', 'Hey'); StartsWith = 'NotHe'; Expected = @(); },
+        @{ Collection = @('Hello', 'Hey'); StartsWith = 'Hell'; Expected = @('Hello'); }
     ) {
         param ($StartsWith, $Expected, $Collection)
 
@@ -15,6 +16,7 @@ Describe 'Where-String' {
         @{ Collection = @('Hello'); Contains = 'll'; Expected = @('Hello'); },
         @{ Collection = @('Hello'); Contains = 'le'; Expected = @(); },
         @{ Collection = @('Hello', 'Hey'); Contains = 'He'; Expected = @('Hello', 'Hey'); },
+        @{ Collection = @('Hello', 'Hey'); Contains = 'll'; Expected = @('Hello'); },
         @{ Collection = @('Hello', 'Hey'); Contains = 'Not'; Expected = @(); }
     ) {
         param ($Contains, $Expected, $Collection)
